@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout Repository
-          uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: setup Python
-          uses: actions/setup-python@v5
-          with:
-           python-version: '3.12'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Install dependencies
-          run: pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run the application
-          run: python app.py
+        run: python app.py
