@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  docker:
     runs-on: ubuntu-latest
     environment: test
     steps:
@@ -18,13 +18,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: bipinchhetri01/github-actions-demo:latest
 
-      - name: Run Docker container
+      - name: Run Docker image
         run: |
           docker run -d --name my-container bipinchhetri01/github-actions-demo:latest
